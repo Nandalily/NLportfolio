@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NANKUNDAL | Software Developer & Analyst</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      background: #f7f9fa;
+      color: #222;
+      transition: background 0.3s, color 0.3s;
+    }
+    h1, h2, h3 {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 2.7rem;
+      letter-spacing: 2px;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      font-size: 1.3rem;
+    }
+    /* Dark mode styles */
+    body.dark-mode {
+      background: #181a1b;
+      color: #f7f9fa;
+    }
+    body.dark-mode header {
+      background: #22223b;
+      color: #fff;
+    }
+    body.dark-mode main {
+      background: #23243a;
+      color: #f7f9fa;
+    }
+    body.dark-mode .project-card {
+      background: #23243a;
+      border-color: #393a5a;
+    }
+    body.dark-mode a, body.dark-mode .contact-info a {
+      color: #ff4fbc;
+    }
+    body.dark-mode #hero {
+      background: linear-gradient(120deg,#23243a 0%,#393a5a 100%);
+      color: #fff;
+    }
+    header {
+      background: #ff4fbc;
+      color: #fff;
+      padding: 2rem 0 1.5rem 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+    header p {
+      margin: 0.5rem 0 0 0;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: text-decoration 0.2s;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    /* Fade-in animation for main */
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 2rem;
+      opacity: 0;
+      animation: fadeIn 1.2s ease-in forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Section entrance animation */
+    section, .project-card {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    section:nth-of-type(1) { animation-delay: 0.2s; }
+    section:nth-of-type(2) { animation-delay: 0.4s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.8s; }
+    section:nth-of-type(5) { animation-delay: 1.0s; }
+    .project-card { animation-delay: 1.2s; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Project card hover effect */
+    .project-card {
+      background: #f5faff;
+      border: 1px solid #dbeafe;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 4px 16px rgba(79,140,255,0.13);
+      transform: translateY(-4px) scale(1.02);
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      color: #ff4fbc;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    .skills-list, .projects-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+    .skills-list li, .projects-list li {
+      background: #eaf1fb;
+      border-radius: 6px;
+      padding: 0.7rem 1.2rem;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .project-card {
+      background: #f5faff;
+      border: 1px solid #dbeafe;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .contact-info {
+      font-size: 1.1rem;
+    }
+    .contact-info a {
+      color: #4f8cff;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    /* Font Awesome icon styles */
+    .fa-brands, .fa-solid {
+      margin-right: 0.5rem;
+    }
+    .skills-list li {
+      display: flex;
+      align-items: center;
+    }
+    .contact-info a {
+      display: inline-flex;
+      align-items: center;
+    }
+    /* Timeline styles */
+    .timeline {
+      position: relative;
+      margin: 2rem 0 2rem 0;
+      padding-left: 2.5rem;
+      border-left: 3px solid #ff4fbc;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      min-height: 60px;
+      animation: fadeInUp 1s ease forwards;
+    }
+    .timeline-icon {
+      position: absolute;
+      left: -2.1rem;
+      top: 0;
+      background: #fff;
+      color: #ff4fbc;
+      border: 3px solid #ff4fbc;
+      border-radius: 50%;
+      width: 2.2rem;
+      height: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      z-index: 1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .timeline-content {
+      background: #f5faff;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-left: 0.5rem;
+      position: relative;
+    }
+    .timeline-date {
+      display: block;
+      font-size: 0.95rem;
+      color: #888;
+      margin-bottom: 0.3rem;
+    }
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+      .timeline {
+        padding-left: 1.2rem;
+      }
+      .timeline-content {
+        padding: 0.7rem 0.7rem;
+      }
+      .timeline-icon {
+        left: -1.2rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button id="darkModeToggle" aria-label="Toggle dark mode" style="position:absolute;top:1.5rem;right:2rem;padding:0.5rem 1rem;background:#fff;color:#ff4fbc;border:none;border-radius:20px;font-weight:700;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.08);">🌙</button>
+    <h1>NankundaL</h1>
+    <p>Software Developer & Analyst | Tech Enthusiast</p>
+    <nav aria-label="Main navigation">
+      <a href="#about" tabindex="0">About</a>
+      <a href="#skills" tabindex="0">Skills</a>
+      <a href="#projects" tabindex="0">Projects</a>
+      <a href="#blog" tabindex="0">Blog</a>
+      <a href="#testimonials" tabindex="0">Testimonials</a>
+      <a href="#contact" tabindex="0">Contact</a>
+      <a href="mine.html" tabindex="0">Mine</a>
+      <a href="practice.html" tabindex="0">My Practice</a>
+    </nav>
+  </header>
+  <section id="hero" style="background:linear-gradient(120deg,#ff4fbc 0%,#091429 100%);color:#fff;padding:3.5rem 0 2.5rem 0;text-align:center;position:relative;">
+    <img src="nankundal.jpg" alt="Portrait of Nankunda, young software developer and analyst" style="width:120px;height:120px;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.13);object-fit:cover;margin-bottom:1.2rem;border:4px solid #fff;" />
+    <h2 style="font-size:2.7rem;margin:0 0 0.5rem 0;letter-spacing:2px;font-weight:800;">Nankunda Lilian</h2>
+    <p style="font-size:1.3rem;margin:0 0 1.5rem 0;font-weight:500;">Empowering the world through code, data, and creativity.</p>
+    <a href="#contact" style="display:inline-block;padding:0.9rem 2.2rem;background:#fff;color:#ff4fbc;border:none;border-radius:30px;font-weight:700;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);font-size:1.1rem;transition:background 0.2s, color 0.2s;">Let's Connect</a>
+  </section>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <img src="nankundal.jpg" alt="Portrait of Nankunda, young software developer and analyst" style="width:140px;height:140px;border-radius:50%;margin-bottom:1rem;box-shadow:0 2px 8px rgba(0,0,0,0.08);object-fit:cover;" />
+      <p>Hello! I'm NANKUNDAL, a passionate young full stack software developer and tech analyst. I love building innovative solutions, analyzing data, and empowering others through technology. Welcome to my personal website!</p>
+      <a href="Nankunda_CV.pdf" download style="display:inline-block;margin-top:1rem;padding:0.7rem 1.5rem;background:#4f8cff;color:#fff;border:none;border-radius:6px;font-weight:600;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:background 0.2s;">Download CV</a>
+    </section>
+
+     <section id="skills">
+      <h2>Programming Languages</h2>
+      <ul class="skills-list">
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>php</li>
+          <li>C</li>
+          <br>
+        <li>HTML &amp; CSS</li>
+        <li>Java</li>
+        <li>SQL</li>
+        <br>
+        <li>Kotlin</li>
+        <li>Git &amp; GitHub</li>
+        <li></i>React</li>
+      </ul>
+    </section>
+
+     <section id="skills">
+      <h2>FrameWorks</h2>
+      <ul class="skills-list">
+        <li><i class="fa-brands fa-python"></i>Laravel</li>
+        <li><i class="fa-brands fa-js"></i>Flutter</li>
+        <li><i class="fa-brands fa-html5"></i>HTML &amp; CSS</li>
+        <li><i class="fa-solid fa-chart-line"></i>Data Analysis</li>
+        <li><i class="fa-solid fa-database"></i>SQL</li>
+        <li><i class="fa-solid fa-robot"></i>Machine Learning</li>
+        <li><i class="fa-brands fa-git-alt"></i>Git &amp; GitHub</li>
+        <li><i class="fa-solid fa-comments"></i>Communication</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li><i class="fa-brands fa-python"></i>Python</li>
+        <li><i class="fa-brands fa-js"></i>JavaScript</li>
+        <li><i class="fa-brands fa-html5"></i>HTML &amp; CSS</li>
+        <li><i class="fa-solid fa-chart-line"></i>Data Analysis</li>
+        <li><i class="fa-solid fa-database"></i>SQL</li>
+        <li><i class="fa-solid fa-robot"></i>Machine Learning</li>
+        <li><i class="fa-brands fa-git-alt"></i>Git &amp; GitHub</li>
+        <li><i class="fa-solid fa-comments"></i>Communication</li>
+      </ul>
+    </section>
+    <section id="timeline">
+      <h2>Experience & Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="timeline-content">
+            <h3>BSc in Software Engineering / Computer Science</h3>
+            <span class="timeline-date">2022 - 2025</span>
+            <p>Makerere University, Kampala</p>
+            <p> Here i have learnt a lot of skills including Website development, Mobile Development,
+              <br>Data analyst in Data Science, Machine Learning, Business analyst</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <div class="timeline-content">
+            <h3>Software Developer Intern</h3>
+            <span class="timeline-date">2022 - 2023</span>
+            <p>Innovatech Solutions</p>
+          </div>
+        </div>
+
+         <div class="timeline-item">
+          <div class="timeline-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <div class="timeline-content">
+            <h3>Self learnt Development</h3>
+            <span class="timeline-date">2022 - 2023</span>
+            <p>Innovatech Solutions</p>
+            <p>Web 3 Development 
+              <br> in Block chain, i have deleoped on Stellar, Cello and may others 
+              <br> abd here i continue to grow with technology
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fa-solid fa-chart-bar"></i></div>
+          <div class="timeline-content">
+            <h3>Data Analyst (Freelance)</h3>
+            <span class="timeline-date">2021 - Present</span>
+            <p>Various Projects</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-card">
+        <strong>Portfolio Website</strong><br>
+        <span>A personal website to showcase my skills and projects. Built with HTML, CSS, and JavaScript.</span>
+        <link rel="stylesheet" href="file:///home/lily/Documents/NANKUNDAL/MyWebsite/index.html#contact">
+      </div>
+      
+      <div class="project-card">
+        <strong>Data Insights Dashboard</strong><br>
+        <span>Interactive dashboard for visualizing and analyzing data trends using Python and Plotly.</span>
+      </div>
+      <div class="project-card">
+        <strong>Chatbot Assistant</strong><br>
+        <span>AI-powered chatbot to assist users with common queries, built with Python and NLP libraries.</span>
+      </div>
+      <li>Iona Website</li>
+      <li>Turbo Internet Services Website</li>
+      <li>Tuma Website</li>
+      <li>My Portfolio Website</li>
+      <li>Calculator</li>
+      <li>Delipu Cash</li>
+    </section>
+    <section id="blog">
+      <h2>Blog & News</h2>
+      <div class="project-card">
+        <strong>Coming Soon!</strong><br>
+        <span>Stay tuned for my latest blog posts and tech news updates.</span>
+      </div>
+    </section>
+    <section id="testimonials">
+      <h2>Testimonials</h2>
+      <div class="project-card">
+        <em>"Nankunda is a brilliant developer with a keen eye for detail and a passion for technology."</em><br>
+        <span>- Tech Mentor</span>
+      </div>
+      <div class="project-card">
+        <em>"Her analytical skills and creativity make her a valuable asset to any team."</em><br>
+        <span>- Project Lead</span>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <a href="mailto:nankundalilian555@gmail.com"><i class="fa-solid fa-envelope"></i>nankundalilian555@gmail.com</a>
+        <a href="mailto:nankunda@email.com"><i class="fa-solid fa-envelope"></i>nankunda@email.com</a>
+        <a href="https://github.com/Nandalily" target="_blank"><i class="fa-brands fa-github"></i>GitHub</a>
+        <a href="https://linkedin.com/in/nankunda" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+        <a href="https://twitter.com/nankunda" target="_blank"><i class="fa-brands fa-twitter"></i>Twitter</a>
+        <a href="https://instagram.com/nankunda" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a>
+      </div>
+    </section>
+  </main>
+  <footer style="text-align:center;padding:1.2rem 0;background:#eaf1fb;color:#ff4fbc;font-weight:600;letter-spacing:1px;">
+    &copy; 2024 Nankunda. All rights reserved.
+  </footer>
+  <script>
+    // Dark mode toggle
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>
